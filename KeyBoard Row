@@ -1,0 +1,30 @@
+class Solution {
+    public String[] findWords(String[] words) {
+        String str[]={" "};
+        String[] rows ={
+            "qwertyuiopQWERTYUIOP",
+            "asdfghjklASDFGHJKL",
+            "zxcvbnmZXCVBNM"
+        };
+        List <String> typeWords=new ArrayList<>();
+        for(String word:words){
+            char[] charArray=word.toCharArray();
+            if(typedUsingRow(charArray,rows[0]) ||
+               typedUsingRow(charArray,rows[1]) ||
+               typedUsingRow(charArray,rows[2])){
+                   typeWords.add(word);
+               }
+        }
+            return typeWords.toArray(new String[0]);
+        }
+        private boolean typedUsingRow(char[] charArray,String row){
+            for(char letter:charArray){
+                if(row.indexOf(letter)==-1){
+                    return false;
+                }
+            }
+            return true;
+        }
+        
+    
+}
