@@ -1,8 +1,28 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        int count=0;
+        int n=nums.length;
+        for(int i:nums){    //Brute force     TC:O(N^2)     SC:(O(1))
+            int count=0;
+            for(int j:nums){
+                if(i==j){
+                    count++;
+                }
+            }
+            if(count>n/2){
+                return i;
+            }
+
+        }
+        return -1;
+       
+        
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+      int count=0;                             //Optimal Approach
         int ele=-1;
-        for(int i=0;i<nums.length;i++){
+        for(int i=0;i<nums.length;i++){        //Moore Voting algorithm     TC:O(N)  SC:O(1)
             if(count==0){
                 count=1;
                 ele=nums[i];
@@ -15,9 +35,9 @@ class Solution {
             }
         }
         return ele;
+
+----------------------------------------------------------------------------------------------------------------------------------------------
         
-    }
-}
 /*
 Given an array nums of size n, return the majority element.
 
