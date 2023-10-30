@@ -4,9 +4,9 @@ class Solution {
         char ch2[]=t.toCharArray();
         Arrays.sort(ch1);
         Arrays.sort(ch2);
-        String a=new String(ch1);
-        String b=new String(ch2);
-        if(a.equals(b)){
+        String str1=String.valueOf(ch1);
+        String str2=String.valueOf(ch2);
+        if(str1.equals(str2)){
             return true;
         }
         else{
